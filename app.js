@@ -212,7 +212,6 @@ const LCLOGO=`<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" heigh
 function about(){
   sheet(`<div class="lc">${LCLOGO}<div><h3>علي الصفار</h3><div style="color:var(--muted);font-size:.95rem">دعم لبراعم العراق</div></div></div>
    <p style="margin:0">صمّم هذا التطبيق <b>علي الصفار</b> من الموصل، العراق، دعماً لطلبتنا، ليتعلم تلاميذ الصف الأول المتوسط الفرنسية من كتاب «Le français en Irak» بطريقة ممتعة، بشرح مفصل ونطق طبيعي وبطيء.</p>
-   <p style="margin:0"><b>نصنع لك تطبيقاً مشابهاً</b> لمدرستك أو مادتك أو مشروعك: تطبيقات تعليمية، أنظمة مدارس، مواقع، وبحوث أكاديمية.</p>
    <div class="contact">
     <a class="cbtn wa" href="https://wa.me/${WA_NUM}" target="_blank" rel="noopener">💬 تواصل عبر واتساب<small>${WA_SHOW}</small></a></div>
    <button class="btn ghost" data-close>إغلاق</button>`,"من نحن");
