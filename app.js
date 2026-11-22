@@ -157,7 +157,7 @@ function toggleHard(fr){const k=fr.toLowerCase();if(hardSet[k])delete hardSet[k]
 function addHard(fr){if(!fr)return;const k=fr.toLowerCase();if(WORDS.has(k)&&!hardSet[k]){hardSet[k]=1;saveHard()}}
 
 /* ───── الثيم والتثبيت والعداد ───── */
-const isDark=()=>{const t=document.documentElement.dataset.theme;return t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches};
+const isDark=()=>{const t=document.documentElement.dataset.theme;return t==="dark"};
 function setTheme(t){document.documentElement.dataset.theme=t;store.set("fr1-theme",t)}
 {const t=store.get("fr1-theme",null);if(t)document.documentElement.dataset.theme=t}
 let deferredPrompt=null;

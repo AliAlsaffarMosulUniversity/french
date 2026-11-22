@@ -9,12 +9,6 @@
   --latin:"Fredoka","Segoe UI",system-ui,sans-serif;
   --shadow:0 3px 0 rgba(80,40,30,.09);
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#1A1415; --grid:rgba(255,230,210,.035); --paper:#251C1E; --ink:#F7EEE3; --muted:#D6C7BC; --line:#3F3033;
-  --btn:#4A68C9; --btn-hi:#6683DB; --btn-soft:#222A44; --on-c:#1A1415;
-  --u1:#7CC98A; --u1s:#22302A; --u2:#F48FB1; --u2s:#3A2430; --u3:#FFB066; --u3s:#3A2B1D; --u4:#C3A3EE; --u4s:#2D2638;
-  --u5:#B5D967; --u5s:#2B3220; --u6:#FF8A80; --u6s:#3F2226; --u7:#F2C94C; --u7s:#383019; --u8:#6FD6C5; --u8s:#1D3330;
-  --ok:#6FD38E; --oks:#1E3326; --bad:#FF8A80; --bads:#3F2226; --gold:#FFC93A; --shadow:0 3px 0 rgba(0,0,0,.4);color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#1A1415; --grid:rgba(255,230,210,.035); --paper:#251C1E; --ink:#F7EEE3; --muted:#D6C7BC; --line:#3F3033;
   --btn:#4A68C9; --btn-hi:#6683DB; --btn-soft:#222A44; --on-c:#1A1415;
