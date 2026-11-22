@@ -216,15 +216,15 @@ function about(){
     <a class="cbtn wa" href="https://wa.me/${WA_NUM}" target="_blank" rel="noopener">💬 تواصل عبر واتساب<small>${WA_SHOW}</small></a></div>
    <button class="btn ghost" data-close>إغلاق</button>`,"من نحن");
 }
-const CNT="https://abacus.jasoncameron.dev",NS="alialsaffarmosuluniversity-french";let stats=null;
+const CNT="https://abacus.jasoncameron.dev",NS="alialsaffarmosuluniversity-french";let stats=null;const BASE_V=100,BASE_O=1000;
 function flag(st,k){try{if(st.getItem(k))return true;st.setItem(k,"1")}catch(e){}return false}
 async function loadStats(){
   if(!onSite())return;
   try{const nv=!flag(localStorage,"fr1-visitor"),no=!flag(sessionStorage,"fr1-visit");
    const get=async(key,hit)=>{let r=await fetch(`${CNT}/${hit?"hit":"get"}/${NS}/${key}`);if(!r.ok&&!hit){r=await fetch(`${CNT}/hit/${NS}/${key}`)}if(!r.ok)throw 0;return(await r.json()).value};
-   const[v,o]=await Promise.all([get("visitors",nv),get("visits",no)]);stats={v,o};paintStats()}catch(e){}}
-function paintStats(){const el=$("#visits");if(!el)return;const st=stats||{v:"…",o:"…"};
-  el.innerHTML=`<div class="vchip"><svg class="eye" viewBox="0 0 64 40" aria-hidden="true"><path class="eyeo" d="M3 20C12 6 24 2 32 2s20 4 29 18c-9 14-21 18-29 18S12 34 3 20z" fill="#fff" stroke="currentColor" stroke-width="3"/><g class="eyei"><circle cx="32" cy="20" r="11" fill="currentColor"/><circle cx="32" cy="20" r="5" fill="#111"/><circle cx="28" cy="16" r="3" fill="#fff"/></g><path class="lid" d="M3 20C12 6 24 2 32 2s20 4 29 18c-9 14-21 18-29 18S12 34 3 20z" fill="currentColor"/></svg><span>عدد الزوار <b>${stats?fmt(stats.v):"…"}</b></span></div><div class="vsub">مرات فتح التطبيق: ${stats?fmt(stats.o):"…"}</div>`;el.hidden=false}
+   const[v,o]=await Promise.all([get("visitors",nv),get("visits",no)]);stats={v:+v+BASE_V,o:+o+BASE_O};paintStats()}catch(e){}}
+function paintStats(){const el=$("#visits");if(!el)return;
+  el.innerHTML=`<div class="vchip"><svg class="eye" viewBox="0 0 64 40" aria-hidden="true"><path class="eyeo" d="M3 20C12 6 24 2 32 2s20 4 29 18c-9 14-21 18-29 18S12 34 3 20z" fill="#fff" stroke="currentColor" stroke-width="3"/><g class="eyei"><circle cx="32" cy="20" r="11" fill="currentColor"/><circle cx="32" cy="20" r="5" fill="#111"/><circle cx="28" cy="16" r="3" fill="#fff"/></g><path class="lid" d="M3 20C12 6 24 2 32 2s20 4 29 18c-9 14-21 18-29 18S12 34 3 20z" fill="currentColor"/></svg><span>عدد الزوار <b>${fmt(stats?stats.v:BASE_V)}</b></span></div><div class="vchip v2"><span>👁️ عدد المشاهدات <b>${fmt(stats?stats.o:BASE_O)}</b></span></div>`;el.hidden=false}
 function confetti(){for(let i=0;i<26;i++){const s=document.createElement("span");s.className="conf";s.textContent=["🎉","⭐","✨","🎈","🌟","🇫🇷"][i%6];s.style.left=Math.random()*100+"vw";s.style.animationDelay=Math.random()*.6+"s";document.body.appendChild(s);setTimeout(()=>s.remove(),3400)}}
 
 /* ───── الشريط العلوي والتنقل ───── */
