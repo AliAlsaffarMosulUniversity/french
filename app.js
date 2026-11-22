@@ -225,7 +225,7 @@ async function loadStats(){
    const get=async(key,hit)=>{const r=await fetch(`${CNT}/${hit?"hit":"get"}/${NS}/${key}`);if(!r.ok)throw 0;return(await r.json()).value};
    const[v,o]=await Promise.all([get("visitors",nv),get("visits",no)]);stats={v,o};paintStats()}catch(e){}}
 function paintStats(){const el=$("#visits");if(!el||!stats)return;
-  el.innerHTML=`<span class="vchip">👥 عدد الزوار <b>${fmt(stats.v)}</b></span><span class="vchip">👁️ مرات الفتح <b>${fmt(stats.o)}</b></span>`;el.hidden=false}
+  el.innerHTML=`<div class="vchip"><svg class="eye" viewBox="0 0 64 40" aria-hidden="true"><path class="eyeo" d="M3 20C12 6 24 2 32 2s20 4 29 18c-9 14-21 18-29 18S12 34 3 20z" fill="#fff" stroke="currentColor" stroke-width="3"/><g class="eyei"><circle cx="32" cy="20" r="11" fill="currentColor"/><circle cx="32" cy="20" r="5" fill="#111"/><circle cx="28" cy="16" r="3" fill="#fff"/></g><path class="lid" d="M3 20C12 6 24 2 32 2s20 4 29 18c-9 14-21 18-29 18S12 34 3 20z" fill="currentColor"/></svg><span>عدد الزوار <b>${fmt(stats.v)}</b></span></div><div class="vsub">مرات فتح التطبيق: ${fmt(stats.o)}</div>`;el.hidden=false}
 function confetti(){for(let i=0;i<26;i++){const s=document.createElement("span");s.className="conf";s.textContent=["🎉","⭐","✨","🎈","🌟","🇫🇷"][i%6];s.style.left=Math.random()*100+"vw";s.style.animationDelay=Math.random()*.6+"s";document.body.appendChild(s);setTimeout(()=>s.remove(),3400)}}
 
 /* ───── الشريط العلوي والتنقل ───── */
@@ -257,8 +257,8 @@ function home(){
   UNITS.forEach(u=>{h+=`<button class="u" data-id="${u.id}" style="${col(u.id)}"><span class="em">${u.emoji}</span><span class="tx"><span class="no">${u.no}</span><h3>${esc(u.fr)}</h3><span class="ar">${u.ar}</span><span class="stars">${starRow(best[u.id]||0)}</span></span></button>`});
   h+=`</section><button class="challenge" id="chal"><span class="em">🏆</span><span><h3>تحدي البطل</h3><p>اختبار من كل الكتاب، وأنت تحدد عدد الأسئلة</p></span><span class="go">ابدأ</span></button>
   <div class="actions"><button class="act" id="aInv"><span>💌</span>دعوة الأصدقاء</button><button class="act needinstall" id="aIns"><span>📲</span>تنزيل التطبيق</button><button class="act" id="aAbout"><span>ℹ️</span>من نحن</button></div>
-  <div class="visits" id="visits" hidden></div>
-  <p class="foot">مبني على كتاب «Le français en Irak» وكراس الأنشطة للصف الأول المتوسط<br>تصميم وتطوير: علي الصفار .. دعم لبراعم العراق</p>`;
+  <p class="foot">مبني على كتاب «Le français en Irak» وكراس الأنشطة للصف الأول المتوسط<br>تصميم وتطوير: علي الصفار .. دعم لبراعم العراق</p>
+  <div class="visits" id="visits" hidden></div>`;
   app.innerHTML=h;
   app.querySelectorAll(".u").forEach(b=>b.onclick=()=>unit(+b.dataset.id,"learn"));
   $("#chal").onclick=challenge;$("#aInv").onclick=invite;$("#aAbout").onclick=about;

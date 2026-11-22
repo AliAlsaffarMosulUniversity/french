@@ -362,3 +362,15 @@ main{max-width:820px;margin:0 auto;padding:18px max(14px,env(safe-area-inset-rig
 .spk.mic.rec{background:var(--bad);color:#fff;animation:pulse .7s infinite}
 .fc-wrap .seg{align-self:center}
 .sent .dbt{margin-top:2px}
+
+.visits{flex-direction:column;align-items:center;gap:4px;margin-top:6px}
+.vchip{color:var(--btn);gap:10px;padding:6px 18px}
+.vchip span{color:var(--ink)}
+.vchip b{color:var(--btn);font-size:1.25rem}
+.vsub{color:var(--muted);font-size:.85rem}
+.eye{width:44px;height:28px;flex:none;color:var(--btn)}
+.eye .lid{transform-origin:50% 0%;transform-box:fill-box;animation:blink 4s infinite;clip-path:none}
+.eye .eyei{animation:look 6s infinite;transform-box:fill-box}
+@keyframes blink{0%,90%,100%{transform:scaleY(0);opacity:1}94%{transform:scaleY(1);opacity:1}}
+@keyframes look{0%,35%,100%{transform:translateX(0)}45%,60%{transform:translateX(-6px)}70%,85%{transform:translateX(6px)}}
+@media (prefers-reduced-motion:reduce){.eye .lid,.eye .eyei{animation:none!important}}
